@@ -21,18 +21,9 @@ function CartItem() {
     return quantity * item;
   };
 
-  const [deleteItem, setDeleteItem] = useState(cartItem);
-
   const removeFromCart = (id) => {
-    const updateCart = cartItem.filter((item) => item.id !== id);
-    setDeleteItem(updateCart);
-    const json = JSON.stringify(cartItem.id);
-    localStorage.removeItem("cartItem", json);
+    setCartItem((prev) => prev.filter((item) => item.id !== id));
   };
-
-  useEffect(() => {
-    setCartItem(deleteItem);
-  }, [deleteItem, setCartItem]);
 
   return (
     <>
