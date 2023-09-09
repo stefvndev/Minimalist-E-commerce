@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import CartWithItems from "./CartWithItems";
 import EmptyCart from "./EmptyCart";
 import { CartContext } from "../pages/ProductPage";
+import { IconMenu2, IconShoppingCart, IconX } from "@tabler/icons-react";
 
 function Navbar() {
   const [sticky, setSticky] = useState(false);
@@ -40,10 +41,7 @@ function Navbar() {
       <div
         className={`mobile-nav-full ${mobileNav ? "open-flex" : "closed-flex"}`}
       >
-        <i
-          onClick={() => setMobileNav(!mobileNav)}
-          className="fa-sharp fa-solid fa-xmark"
-        ></i>
+        <IconX onClick={() => setMobileNav(!mobileNav)} className="x-mobile" />
         <div className="mobile-links">
           <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
             categories
@@ -72,7 +70,7 @@ function Navbar() {
           <h2 className="cart-full-h2">
             Your Shopping Cart ({cartItem.length})
           </h2>
-          <i onClick={openCart} className="fa-sharp fa-solid fa-xmark"></i>
+          <IconX onClick={openCart} />
         </div>
 
         <div className="cart-body">
@@ -108,23 +106,29 @@ function Navbar() {
               <i
                 data-array-length={cartItem.length}
                 onClick={openCart}
-                className={`fa-solid fa-cart-shopping ${
+                className={`${
                   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
                 }`}
-              ></i>
+              >
+                <IconShoppingCart />
+              </i>
             </div>
             <div className="hamburger-menu">
               <i
                 data-array-length={cartItem.length}
                 onClick={openCart}
-                className={`fa-solid fa-cart-shopping hamburger-cart ${
+                className={`hamburger-cart ${
                   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
                 }`}
-              ></i>
+              >
+                <IconShoppingCart />
+              </i>
               <i
                 onClick={() => setMobileNav(!mobileNav)}
-                className="fa-solid fa-bars hamburger-hamb"
-              ></i>
+                className="hamburger-hamb"
+              >
+                <IconMenu2 />
+              </i>
             </div>
           </div>
         </div>

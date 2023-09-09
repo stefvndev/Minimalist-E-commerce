@@ -1,5 +1,6 @@
 import "./TrendingSlider.css";
 import TrendingItem from "./TrendingItem";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 
 function TrendingSlider() {
   const slideLeft = () => {
@@ -19,10 +20,10 @@ function TrendingSlider() {
           <h3>Trending Now</h3>
           <div className="btns">
             <button title="scroll left" onClick={slideLeft}>
-              <i className="fa-solid fa-arrow-left"></i>
+              <IconArrowLeft />
             </button>
             <button title="scroll right" onClick={slideRight}>
-              <i className="fa-solid fa-arrow-right"></i>
+              <IconArrowRight />
             </button>
           </div>
         </div>

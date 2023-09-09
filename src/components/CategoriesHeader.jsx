@@ -1,3 +1,4 @@
+import { IconChevronLeft } from "@tabler/icons-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -14,7 +15,7 @@ function CategoriesHeader() {
         <div className="catego-header">
           <div className="title-home">
             <Link onClick={() => window.scrollTo(0, 0)} to="/">
-              <i className="fa-solid fa-angle-left"></i> Home
+              <IconChevronLeft /> Home
             </Link>
             <h3>{btnName}</h3>
           </div>

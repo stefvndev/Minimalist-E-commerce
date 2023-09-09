@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../pages/ProductPage";
+import { IconX } from "@tabler/icons-react";
 
 function CartItem() {
   const [quantity, setQuantity] = useState(1);
@@ -51,10 +52,7 @@ function CartItem() {
           </div>
           <div className="cart-right">
             <p className="cart-price">{calcPrice(quantity, item.price)}.00$</p>
-            <i
-              onClick={() => removeFromCart(item.id)}
-              className="fa-sharp fa-solid fa-xmark"
-            ></i>
+            <IconX onClick={() => removeFromCart(item.id)} />
           </div>
         </div>
       ))}

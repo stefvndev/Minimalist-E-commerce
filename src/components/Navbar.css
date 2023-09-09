@@ -287,7 +287,8 @@
 }
 
 .cart-icon {
-    position: relative
+    position: relative;
+    cursor: pointer;
 }
 
 .cart-icon::after {
@@ -311,7 +312,7 @@
     top: -18px;
     position: absolute;
     left: 12px;
-    font-size: 11px;
+    font-size: 13px;
     background-color: #B6002C;
     color: white;
     padding: 5px;
@@ -319,7 +320,9 @@
     width: 10px;
     height: 10px;
     text-align: center;
-    display: block;
+    display: flex;
+    align-items: center;
+    z-index: 999;
 }
 
 
@@ -412,4 +415,11 @@
     /* .full-cart-div {
         height: 63%;
     } */
+}
+
+.x-mobile {
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    cursor: pointer;
 }
