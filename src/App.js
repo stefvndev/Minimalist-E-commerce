@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
+  const [btnName, setBtnName] = useState("All");
 
   const addToCart = (item) => {
     setCartItem([...cartItem, item]);
@@ -34,7 +35,7 @@ function App() {
   }, [cartItem]);
 
   return (
-    <CartContext.Provider value={{ cartItem, addToCart, setCartItem }}>
+    <CartContext.Provider value={{ cartItem, addToCart, setCartItem,btnName, setBtnName }}>
       <Navbar />
       <Routes>
         <Route index path="/" element={<Home />} />
