@@ -12,6 +12,7 @@ function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
+  const {setBtnName} = useContext(CartContext);
 
   const { cartItem } = useContext(CartContext);
 
@@ -46,7 +47,7 @@ function Navbar() {
           <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
             categories
           </Link>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
+          <Link onClick={() => {setMobileNav(!mobileNav); setBtnName("lamps")}} to="/categories/lamps">
             lamps
           </Link>
           <Link
