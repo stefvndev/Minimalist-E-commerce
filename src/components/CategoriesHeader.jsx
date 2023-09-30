@@ -1,9 +1,21 @@
 import { IconChevronLeft } from "@tabler/icons-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { CartContext } from "../pages/ProductPage";
 
 function CategoriesHeader() {
-  const [btnName, setBtnName] = useState("All");
+  const {btnName, setBtnName} = useContext(CartContext);
+
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Check if the current location is the "categories/all" page and set btnName accordingly
+    const currentCategory = location.pathname.slice(1); // Remove the leading slash
+    if (currentCategory === "categories/all") {
+      setBtnName("All");
+    }
+  }, [location.pathname, setBtnName]); // Include the dependencies in the array
+
 
   const handleBtnName = (e) => {
     setBtnName(e);
